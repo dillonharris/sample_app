@@ -4,7 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
 
 	def setup
-		@user = User.new(name: "Example User", email: "user@example.com",
+		@user = User.create(name: "Example User", email: "user@example.com",
 										 password: "foobar", password_confirmation: "foobar")
 	end
 
@@ -21,14 +21,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 	test "login with valid information" do
 		get login_path
 		post login_path, session: { email: @user.email, password: 'foobar' }
-
-# These next assertions fail even though the code works. I need help.
-		# assert_redirected_to @user
-		# follow_redirect!
-		# assert_template 'users/show'
-		# assert_select "a[href=?]", login_path, count: 0
-		# assert_select "a[href=?]", logout_path
-		# assert_select "a[href=?]", user_path
+		assert_redirected_to @user
+		follow_redirect!
+		assert_template 'users/show'
+		assert_select "a[href=?]", login_path, count: 0
+		assert_select "a[href=?]", logout_path
+		assert_select "a[href=?]", user_path
 	end
 
 end
