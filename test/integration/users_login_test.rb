@@ -5,7 +5,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
 	def setup
 		@user = User.create(name: "Example User", email: "user@example.com",
-										 password: "foobar", password_confirmation: "foobar")
+										 password: "foobar", password_confirmation: "foobar", activated: true, activated_at: Time.zone.now)
 	end
 
 	test "login with invalid information" do

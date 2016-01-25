@@ -17,7 +17,7 @@ class ActiveSupport::TestCase
   def log_in_as(user, options = {})
   	password 		= options[:password]		|| 'password'
   	remember_me = options[:remember_me] || '1'
-  	if intergration_test?
+  	if integration_test?
   		post login_path, session: { email: user.email,
   																password: password,
   																remember_me: remember_me }
@@ -28,8 +28,8 @@ class ActiveSupport::TestCase
 
   private 
 
-    # Returns true inside an intergration test.
-  	def intergration_test?
+    # Returns true inside an integration test.
+  	def integration_test?
   		defined?(post_via_redirect)
   	end
 end

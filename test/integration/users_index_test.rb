@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersIndexTest < ActionDispatch::IntegrationTest
 
 	def setup
-		@admin = User.create!(name: "Example User", email: "user@example.com", password: "password")
-		@non_admin = User.create(name: "Sterling Archer", email: "duchess@example.gov", password: "password", password_confirmation: "password")
+		@admin = User.create!(name: "Example User", email: "user@example.com", password: "password", activated: true, activated_at: Time.zone.now)
+		@non_admin = User.create(name: "Sterling Archer", email: "duchess@example.gov", password: "password", password_confirmation: "password", activated: true, activated_at: Time.zone.now)
 
 		# here is where I created 35 users to run before the test so that it can have pagination working on it.
 		35.times do |index|
