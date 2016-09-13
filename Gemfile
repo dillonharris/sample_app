@@ -22,6 +22,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'foundation-rails'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'pry'
   gem 'sqlite3',     '1.3.9'
