@@ -16,7 +16,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
 	test "index as an admin including pagination and delete links" do
 		log_in_as(@admin)
 		get users_path
-		assert_template 'users/index' 
+		assert_template 'users/index'
 		# assert_select works only if there is more then 30 users in memory.
 		assert_select "div.pagination"
 		first_page_of_users = User.paginate(page: 1)
@@ -29,7 +29,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
 			end
 		end
 		# this next line of code works with the line of code on top
-		# assert_difference 'User.count', -1 do 
+		# assert_difference 'User.count', -1 do
 		# 	delete user_path(@non_admin)
 		# end
 	end

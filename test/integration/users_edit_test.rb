@@ -9,7 +9,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
 	test "unsuccessful edit" do
 		# log_in_as(@user) # This method is not working in the test loging in a user as it should.
-		
+
 		# manually logged in with the get & patch request.
 		get login_path
 		post login_path, session: { email: @user.email, password: 'foobar' }
@@ -44,4 +44,4 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		assert_equal @user.email, email
 	end
 end
- 
+

@@ -13,7 +13,7 @@ class ActiveSupport::TestCase
   	!session[:user_id].nil?
   end
 
-  # Logs in a user. 
+  # Logs in a user.
   def log_in_as(user, options = {})
   	password 		= options[:password]		|| 'password'
   	remember_me = options[:remember_me] || '1'
@@ -26,7 +26,7 @@ class ActiveSupport::TestCase
   	end
   end
 
-  private 
+  private
 
     # Returns true inside an intergration test.
   	def intergration_test?

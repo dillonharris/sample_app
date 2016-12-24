@@ -17,7 +17,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		get root_path
 		assert flash.empty?
 	end
-	
+
 	test "login with valid information" do
 		get login_path
 		post login_path, session: { email: @user.email, password: 'foobar' }
@@ -39,13 +39,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		assert_select "a[href=?]", user_path(@user), count: 0
 	end
 
-	test "login with remembering" do 
+	test "login with remembering" do
 		log_in_as(@user, remember_me: '1')
 		# should be assert_not_nil in line 45
 		assert_not cookies['remember_token']
 	end
 
-	test "login without remembering" do 
+	test "login without remembering" do
 		log_in_as(@user, remember_me: '0')
 		assert_nil cookies['remember_token']
 	end
